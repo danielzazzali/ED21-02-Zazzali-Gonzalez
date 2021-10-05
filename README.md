@@ -1,2 +1,2 @@
-# ED21-02-Zazzali-Gonzales
+# ED21-02-Zazzali-Gonzalez
 Repositorio Taller Estructura de Datos

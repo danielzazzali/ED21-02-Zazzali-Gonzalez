@@ -1,0 +1,12 @@
+﻿  FaceRecognition.cpp
+D:\Documentos\OpenCv\ED21-02-Zazzali-Gonzalez-release-0.1\Taller\FaceRecognition.cpp(49,92): warning C4244: 'argument': conversion from 'double' to '_Tp', possible loss of data
+          with
+          [
+              _Tp=int
+          ]
+D:\Documentos\OpenCv\ED21-02-Zazzali-Gonzalez-release-0.1\Taller\FaceRecognition.cpp(49,59): warning C4244: 'argument': conversion from 'double' to '_Tp', possible loss of data
+          with
+          [
+              _Tp=int
+          ]
+  Taller.vcxproj -> D:\Documentos\OpenCv\ED21-02-Zazzali-Gonzalez-release-0.1\Taller\x64\Debug\Taller.exe

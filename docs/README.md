@@ -5,7 +5,7 @@
 
 **Alumnos:**
 
-* Diego Gonzalez Moreno
+* Diego González Moreno
 * Daniel Zazzali Peñaloza
 
 ## Resumen 

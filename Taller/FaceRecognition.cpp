@@ -1,8 +1,8 @@
-#include <opencv2\opencv.hpp>
+#include <opencv2/opencv.hpp>
 #include <vector>
+#include <string>
 
 // Components used
-using cv::VideoCapture;
 using cv::Mat;
 using cv::waitKey;
 using cv::CascadeClassifier;
@@ -11,7 +11,9 @@ using cv::Size;
 using cv::Rect;
 using cv::Scalar;
 using cv::Point;
+using cv::imread;
 using std::vector;
+using std::string;
 
 int main() {
 	
@@ -22,61 +24,50 @@ int main() {
 
 	// Pre-trained machine learning model to detect faces
 	CascadeClassifier faceCascade;
-	faceCascade.load("C:\\opencv\\build\\etc\\haarcascades\\haarcascade_frontalface_alt.xml");
+	faceCascade.load("D:/opencv/build/etc/haarcascades/haarcascade_frontalface_alt.xml");
 
-	// Open the default camera
-	VideoCapture cap(0);
-
-	// Check if the camera was opened
-	if (!cap.isOpened()) {
-		return -1;
-	}
+	// Open the image
+	string path = "Resources/personas.jpg";
+	
 
 	// ---PROCESS AND SHOW FRAMES---
 
-	while (true) {
 
-		// Matrix to store the frame of the camera
-		Mat frame;
-		// Wait for a new frame from camera and store it in 'frame'
-		cap.read(frame);
-		// Matrix to store the captured frame on gray-scale color
-		Mat grayscale;
 
-		// Convert the color of 'frame' to gray-scale and store it in 'grayscale'
-		cvtColor(frame, grayscale, COLOR_BGR2GRAY);
-		// Resize the image to make the process more efficient
-		resize(grayscale, grayscale, Size(grayscale.size().width / scale, grayscale.size().height / scale));
+	// Matrix to store the image
+	Mat frame = imread(path);
+	
+	// Matrix to store the image on gray-scale color
+	Mat grayscale;
 
-		// Vector to store the area of the detected face
-		vector<Rect> faces;
+	// Convert the color of 'frame' to gray-scale and store it in 'grayscale'
+	cvtColor(frame, grayscale, COLOR_BGR2GRAY);
+	// Resize the image to make the process more efficient
+	resize(grayscale, grayscale, Size(grayscale.size().width / scale, grayscale.size().height / scale));
 
-		// Detect and store the face in 'faces' as a list of rectangles
-		faceCascade.detectMultiScale(grayscale, faces, 1.1, 3, 0, Size(50, 50));
+	// Vector to store the area of the detected face
+	vector<Rect> faces;
 
-		// For every rectangle in tha face region
-		for (Rect area : faces) {
+	// Detect and store the face in 'faces' as a list of rectangles
+	faceCascade.detectMultiScale(grayscale, faces, 1.02, 3);
 
-			// Set the color to use (red)
-			Scalar drawColor = Scalar(0, 0, 255);
+	// For every rectangle in the face region
+	for (Rect area : faces) {
 
-			// Draws a rectangle around the area detected as a face
-			rectangle(frame,
-				Point(cvRound(area.x * scale), cvRound(area.y * scale)),
-				Point(cvRound((area.x + area.width - 1) * scale), cvRound((area.y + area.height - 1) * scale)),
-				drawColor, 2);
+		// Set the color to use (red)
+		Scalar drawColor = Scalar(0, 0, 255);
 
-		}
-
-		// Shows the frame in a windows
-		imshow("Frame", frame);
-
-		// Breaks the cycle if a key is pressed (exit)
-		if (waitKey(30) >= 0) {
-			break;
-		}
+		// Draws a rectangle around the area detected as a face
+		rectangle(frame,
+			Point(cvRound(area.x * scale), cvRound(area.y * scale)),
+			Point(cvRound((area.x + area.width - 1) * scale), cvRound((area.y + area.height - 1) * scale)),
+			drawColor, 2);
 
 	}
+
+	// Shows the frame in a windows
+	imshow("Frame", frame);
+	waitKey(0);
 
 	return 0;
 

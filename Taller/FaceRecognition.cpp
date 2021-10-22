@@ -1,6 +1,10 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include <string>
+#include <opencv2/opencv.hpp>
+#include <vector>
+#include <string>
+#include <fstream>
 
 // Components used
 using cv::Mat;
@@ -14,10 +18,20 @@ using cv::Point;
 using cv::imread;
 using std::vector;
 using std::string;
+using std::cout;
+using std::endl;
+using std::stringstream;
+using cv::imwrite;
+using std::to_string;
 
 int main() {
 
 	// ---INITIALIZE COMPONENTS---
+	vector<Mat> images(7);
+	vector<string> labels(7);
+	string filename;
+	string name;
+	string filenumber;
 
 	// Scale for data processing
 	double scale = 1.5;
@@ -28,7 +42,7 @@ int main() {
 
 	// Open the image
 
-	string paths[8];
+	vector<string> paths(7);
 	paths[0] = "Resources/personas1.jpg";
 	paths[1] = "Resources/personas2.jpg";
 	paths[2] = "Resources/personas3.jpg";
@@ -36,12 +50,10 @@ int main() {
 	paths[4] = "Resources/personas5.jpg";
 	paths[5] = "Resources/personas6.jpg";
 	paths[6] = "Resources/personas7.jpg";
-	paths[7] = "Resources/personas8.jpg";
-
 
 	// ---PROCESS AND SHOW FRAMES---
 
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < paths.size(); i++) {
 
 		// Matrix to store the image
 		Mat frame = imread(paths[i]);
@@ -49,6 +61,7 @@ int main() {
 		// Matrix to store the image on gray-scale color
 		Mat grayscale;
 
+		//Matrix to store the face cropped
 		Mat croppedFace;
 
 		// Convert the color of 'frame' to gray-scale and store it in 'grayscale'
@@ -71,10 +84,18 @@ int main() {
 
 			croppedFace = frame(Rect(x, y, w, h));
 
-			//almacenar y/o actualizar informacion de la identidad correspondiente
+			images[r] = croppedFace;
 
-			//imshow("Face", croppedFace);
-			//waitKey(100);
+			filenumber = to_string(r);
+			labels[r] = filenumber;
+
+			stringstream ssfn;
+			filename = "C:\\Users\\Daniel\\Documents\\GitHub\\ED21-02-Zazzali-Gonzalez\\Taller\\Resources\\Faces\\";
+			ssfn << filename.c_str() << name << filenumber << ".jpg";
+			filename = ssfn.str();
+			imwrite(filename, croppedFace);
+
+			//almacenar informacion de la identidad correspondiente
 
 		}
 
@@ -94,7 +115,6 @@ int main() {
 
 		// Shows the frame in a windows
 		imshow("Frame", frame);
-
 		waitKey(1);
 
 	}

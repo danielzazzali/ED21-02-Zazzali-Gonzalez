@@ -16,7 +16,7 @@ using std::vector;
 using std::string;
 
 int main() {
-	
+
 	// ---INITIALIZE COMPONENTS---
 
 	// Scale for data processing
@@ -27,47 +27,77 @@ int main() {
 	faceCascade.load("C:/opencv/build/etc/haarcascades/haarcascade_frontalface_alt.xml");
 
 	// Open the image
-	string path = "Resources/personas.jpg";
-	
+
+	string paths[8];
+	paths[0] = "Resources/personas1.jpg";
+	paths[1] = "Resources/personas2.jpg";
+	paths[2] = "Resources/personas3.jpg";
+	paths[3] = "Resources/personas4.jpg";
+	paths[4] = "Resources/personas5.jpg";
+	paths[5] = "Resources/personas6.jpg";
+	paths[6] = "Resources/personas7.jpg";
+	paths[7] = "Resources/personas8.jpg";
+
 
 	// ---PROCESS AND SHOW FRAMES---
 
+	for (int i = 0; i < 8; i++) {
 
+		// Matrix to store the image
+		Mat frame = imread(paths[i]);
 
-	// Matrix to store the image
-	Mat frame = imread(path);
-	
-	// Matrix to store the image on gray-scale color
-	Mat grayscale;
+		// Matrix to store the image on gray-scale color
+		Mat grayscale;
 
-	// Convert the color of 'frame' to gray-scale and store it in 'grayscale'
-	cvtColor(frame, grayscale, COLOR_BGR2GRAY);
-	// Resize the image to make the process more efficient
-	resize(grayscale, grayscale, Size(grayscale.size().width / scale, grayscale.size().height / scale));
+		Mat croppedFace;
 
-	// Vector to store the area of the detected face
-	vector<Rect> faces;
+		// Convert the color of 'frame' to gray-scale and store it in 'grayscale'
+		cvtColor(frame, grayscale, COLOR_BGR2GRAY);
+		// Resize the image to make the process more efficient
+		resize(grayscale, grayscale, Size(grayscale.size().width / scale, grayscale.size().height / scale));
 
-	// Detect and store the face in 'faces' as a list of rectangles
-	faceCascade.detectMultiScale(grayscale, faces, 1.02, 3);
+		// Vector to store the area of the detected face
+		vector<Rect> faces;
 
-	// For every rectangle in the face region
-	for (Rect area : faces) {
+		// Detect and store the face in 'faces' as a list of rectangles
+		faceCascade.detectMultiScale(grayscale, faces, 1.02, 3);
 
-		// Set the color to use (red)
-		Scalar drawColor = Scalar(0, 0, 255);
+		for (int r = 0; r < faces.size(); r++) {
 
-		// Draws a rectangle around the area detected as a face
-		rectangle(frame,
-			Point(cvRound(area.x * scale), cvRound(area.y * scale)),
-			Point(cvRound((area.x + area.width - 1) * scale), cvRound((area.y + area.height - 1) * scale)),
-			drawColor, 2);
+			int x = faces[r].x * scale;
+			int y = faces[r].y * scale;
+			int w = faces[r].width * scale;
+			int h = faces[r].height * scale;
+
+			croppedFace = frame(Rect(x, y, w, h));
+
+			//almacenar y/o actualizar informacion de la identidad correspondiente
+
+			//imshow("Face", croppedFace);
+			//waitKey(100);
+
+		}
+
+		// For every rectangle in the face region
+		for (Rect area : faces) {
+
+			// Set the color to use (red)
+			Scalar drawColor = Scalar(0, 0, 255);
+
+			// Draws a rectangle around the area detected as a face
+			rectangle(frame,
+				Point(cvRound(area.x * scale), cvRound(area.y * scale)),
+				Point(cvRound((area.x + area.width - 1) * scale), cvRound((area.y + area.height - 1) * scale)),
+				drawColor, 2);
+
+		}
+
+		// Shows the frame in a windows
+		imshow("Frame", frame);
+
+		waitKey(1);
 
 	}
-
-	// Shows the frame in a windows
-	imshow("Frame", frame);
-	waitKey(0);
 
 	return 0;
 

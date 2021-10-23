@@ -1,4 +1,4 @@
-# ED21-02-Zazzali-Gonzalez
+# ED21-02-Zazzali-González
 ## Release 0.2
 
-Primera historia de usuario actualizada, es posible observar todas las caras de una imagen en pantalla identificadas por un rectangulo de color rojo.
+Implementada lista enlazada que almacena las caras recortadas de los sujetos detectados por el algoritmo.

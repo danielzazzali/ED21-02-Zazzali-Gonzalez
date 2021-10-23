@@ -3,12 +3,16 @@
 Node::Node() {
 
 	this->data = nullptr;
+	this->next = nullptr;
+	this->previous = nullptr;
 
 }
 
 Node::Node(Identity* identity) {
 
 	this->data = identity;
+	this->next = nullptr;
+	this->previous = nullptr;
 
 }
 

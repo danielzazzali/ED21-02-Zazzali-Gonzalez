@@ -12,17 +12,19 @@ private:
 
 public:
 
-	LinkedList(Node* first);
+	LinkedList();
 
 	~LinkedList();
 
 	Node* getFirst();
 
+	Identity* getX(int x);
+
 	int getSize();
 
 	bool isEmpty();
 
-	bool add(Node* node);
+	bool add(Identity* identity);
 
 	bool remove(int position);
 

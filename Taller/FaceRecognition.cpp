@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include "Identity.h"
+#include "LinkedList.h"
 
 // Components used
 using cv::Mat;
@@ -23,8 +25,10 @@ using std::endl;
 using std::stringstream;
 using cv::imwrite;
 using std::to_string;
+using cv::putText;
 
 int main() {
+
 
 	// ---INITIALIZE COMPONENTS---
 	vector<Mat> images(7);
@@ -32,6 +36,8 @@ int main() {
 	string filename;
 	string name;
 	string filenumber;
+
+	LinkedList* list = new LinkedList();
 
 	// Scale for data processing
 	double scale = 1.5;
@@ -90,12 +96,10 @@ int main() {
 			labels[r] = filenumber;
 
 			stringstream ssfn;
-			filename = "C:\\Users\\Daniel\\Documents\\GitHub\\ED21-02-Zazzali-Gonzalez\\Taller\\Resources\\Faces\\";
+			filename = "Resources\\Faces\\";
 			ssfn << filename.c_str() << name << filenumber << ".jpg";
 			filename = ssfn.str();
 			imwrite(filename, croppedFace);
-
-			//almacenar informacion de la identidad correspondiente
 
 		}
 
@@ -113,10 +117,32 @@ int main() {
 
 		}
 
+		//Mat face = list->getX(i)->getImage();
+		//string label = list->getX(i)->getLabel();
+
+		//imshow("Face", images[i]);
+
+
 		// Shows the frame in a windows
 		imshow("Frame", frame);
 		waitKey(1);
 
+
+	}
+
+	for (int i = 0; i < images.size(); i++) {
+
+		Identity* id = new Identity(images[i], labels[i]);
+
+		list->add(id);
+
+		Mat face = list->getX(i)->getImage();
+		string label = list->getX(i)->getLabel();
+
+		putText(face, label, Point(20,20), 1, 1.5, Scalar(0,0,0), 2, 8, false);
+
+		imshow(label, face);
+		waitKey(1000);
 	}
 
 	return 0;

@@ -91,6 +91,8 @@ Para detectar los rostros en pantalla se utilizó el modelo haarcascade.
 
 }
 ```
+El ciclo for se encarga de recortar los rostros y almacenarlos en la carpeta "Faces" para su posterior despliegue.
+
 ## 3. Resultados obtenidos
 
 Se logro detectar los rostros que aparecen en pantalla señalados con un rectangulo de color rojo, almacenarlos y desplegarlos.

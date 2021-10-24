@@ -42,7 +42,60 @@ Desarrollar un sistema de software capaz de reconocer, identificar y registrar l
 
 ![diagrama](https://user-images.githubusercontent.com/90357250/136678660-8e52372a-a9ad-475e-8b9d-479b1e01adfa.png)
 
+
+
+## 2. Materiales y métodos
+
+Se utilizará la libreria OpenCV, la IDE Visual Studio 2019 y programación orientada a objetos en C++ para desarrollar el software.
+
+### 2.2 Diseño 
+
+Clases:
+* Identidad
+* Aparicion
+* Usuario
+* Administrador
+* Guardia
+
 ![Diagrama de clase](https://user-images.githubusercontent.com/90357250/138576534-cc880c47-fe1e-45ff-9545-adaa2f853933.jpg)
+
+### 2.3 Implementación
+
+Para detectar los rostros en pantalla se utilizó el modelo haarcascade.
+
+```c++
+    1. CascadeClassifier faceCascade;
+	  2. faceCascade.load("C:/opencv/build/etc/haarcascades/haarcascade_frontalface_alt.xml");
+
+		3. faceCascade.detectMultiScale(grayscale, faces, 1.02, 3);
+
+		4. for (int r = 0; r < faces.size(); r++) {
+
+			5. int x = faces[r].x * scale;
+			6. int y = faces[r].y * scale;
+			7. int w = faces[r].width * scale;
+			8. int h = faces[r].height * scale;
+
+			9. croppedFace = frame(Rect(x, y, w, h));
+
+			10. images[r] = croppedFace;
+
+			11. filenumber = to_string(r);
+			12. labels[r] = filenumber;
+
+			13. stringstream ssfn;
+			14. filename = "Resources\\Faces\\";
+			15. ssfn << filename.c_str() << name << filenumber << ".jpg";
+			16. filename = ssfn.str();
+			17. imwrite(filename, croppedFace);
+
+		}
+```
+## 3. Resultados obtenidos
+
+Se logro detectar los rostros que aparecen en pantalla señalados con un rectangulo de color rojo, almacenarlos y desplegarlos.
+
+https://user-images.githubusercontent.com/90357250/138578160-8e47d085-04bf-49f4-a812-df74588652af.mp4
 
 # Anexos
 

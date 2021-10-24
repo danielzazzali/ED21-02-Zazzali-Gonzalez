@@ -42,4 +42,6 @@ Desarrollar un sistema de software capaz de reconocer, identificar y registrar l
 
 ![diagrama](https://user-images.githubusercontent.com/90357250/136678660-8e52372a-a9ad-475e-8b9d-479b1e01adfa.png)
 
+![Diagrama de clase](https://user-images.githubusercontent.com/90357250/138576534-cc880c47-fe1e-45ff-9545-adaa2f853933.jpg)
+
 

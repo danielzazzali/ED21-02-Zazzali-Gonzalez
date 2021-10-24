@@ -95,7 +95,8 @@ Para detectar los rostros en pantalla se utilizó el modelo haarcascade.
 
 Se logro detectar los rostros que aparecen en pantalla señalados con un rectangulo de color rojo, almacenarlos y desplegarlos.
 
-https://user-images.githubusercontent.com/90357250/138578160-8e47d085-04bf-49f4-a812-df74588652af.mp4
+https://user-images.githubusercontent.com/90357250/138578225-5df71a15-27a3-41c4-bac4-645b2aefc688.mp4
+
 
 # Anexos
 

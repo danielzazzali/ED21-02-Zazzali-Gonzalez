@@ -44,4 +44,10 @@ Desarrollar un sistema de software capaz de reconocer, identificar y registrar l
 
 ![Diagrama de clase](https://user-images.githubusercontent.com/90357250/138576534-cc880c47-fe1e-45ff-9545-adaa2f853933.jpg)
 
+# Anexos
+
+## Anexo A: Instalación y configuración librerías OpenCV
+
+1. Bekios, J., Taller-01: Instalación de las librerías de OpenCV para Visual Studio en C++. https://www.youtube.com/watch?v=Hu7ArOaFm2g
+  
 

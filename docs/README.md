@@ -64,32 +64,32 @@ Clases:
 Para detectar los rostros en pantalla se utilizó el modelo haarcascade.
 
 ```c++
-    1. CascadeClassifier faceCascade;
-	  2. faceCascade.load("C:/opencv/build/etc/haarcascades/haarcascade_frontalface_alt.xml");
+ 1. CascadeClassifier faceCascade;
+ 2. faceCascade.load("C:/opencv/build/etc/haarcascades/haarcascade_frontalface_alt.xml");
 
-		3. faceCascade.detectMultiScale(grayscale, faces, 1.02, 3);
+ 3. faceCascade.detectMultiScale(grayscale, faces, 1.02, 3);
 
-		4. for (int r = 0; r < faces.size(); r++) {
+ 4. for (int r = 0; r < faces.size(); r++) {
 
-			5. int x = faces[r].x * scale;
-			6. int y = faces[r].y * scale;
-			7. int w = faces[r].width * scale;
-			8. int h = faces[r].height * scale;
+	5. int x = faces[r].x * scale;
+	6. int y = faces[r].y * scale;
+	7. int w = faces[r].width * scale;
+	8. int h = faces[r].height * scale;
 
-			9. croppedFace = frame(Rect(x, y, w, h));
+	9. croppedFace = frame(Rect(x, y, w, h));
 
-			10. images[r] = croppedFace;
+	10. images[r] = croppedFace;
 
-			11. filenumber = to_string(r);
-			12. labels[r] = filenumber;
+	11. filenumber = to_string(r);
+	12. labels[r] = filenumber;
 
-			13. stringstream ssfn;
-			14. filename = "Resources\\Faces\\";
-			15. ssfn << filename.c_str() << name << filenumber << ".jpg";
-			16. filename = ssfn.str();
-			17. imwrite(filename, croppedFace);
+	13. stringstream ssfn;
+	14. filename = "Resources\\Faces\\";
+	15. ssfn << filename.c_str() << name << filenumber << ".jpg";
+	16. filename = ssfn.str();
+	17. imwrite(filename, croppedFace);
 
-		}
+}
 ```
 ## 3. Resultados obtenidos
 

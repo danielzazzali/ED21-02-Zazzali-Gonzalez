@@ -1,16 +1,4 @@
-# Proyecto: Detección y reidentificación de caras en secuencias de imágenes o video
+# ED21-02-Zazzali-González
+## Release 0.2
 
-## Curso: Estructura de datos
-
-### Integrantes
-* Diego González Moreno
-* Daniel Zazzali Peñaloza
-
-### Bitácora
-* [Ver Bitácora](docs/BITACORA.md)
-
-### Resumen
-
-
-### Documentos
-* [Reporte Técnico](docs/README.md)
+Implementada lista enlazada que almacena las caras recortadas de los sujetos detectados por el algoritmo.

@@ -87,7 +87,7 @@ int main() {
 
     int* max = tree->findMax();
 
-    cout << "CARA CON MAYOR TIEMPO EN PANTALLA:  ID = " << max[1] << " Frames = " << max[0] << endl;
+    cout << "Id con mayor tiempo en pantalla:  ID = " << max[1] << " Frames = " << max[0] << "\n" << endl;
     
     //Mostrar todas las caras unicas que se detectaron
     for (int i = 0; i < list->getSize(); i++)

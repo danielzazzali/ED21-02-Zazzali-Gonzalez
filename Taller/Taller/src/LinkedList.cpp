@@ -149,6 +149,9 @@ bool LinkedList::remove(int x) {
 }
 
 int LinkedList::search(Mat image) {
+
+	// Retorna el identifier que concuerda con la imagen para actualizar los frames en el arbol.
+
 	Nodo* p = first;
 	int exist = -1;
 	while (p != nullptr)

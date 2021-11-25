@@ -8,15 +8,17 @@
 #include "src/include/ImageCoding.h"
 #include "src/include/LinkedList.h"
 #include "src/include/Identity.h"
+#include "src/include/BinaryTree.h"
 
 
 using namespace std;
 using namespace cv;
 
-int main()
-{
-    cout << "Para salir del programa presione ESC o q(uit)." << endl;
+int main() {
+
     LinkedList* list = new LinkedList();
+    BinaryTree* tree = new BinaryTree();
+
     string path = "resources/Personas.mp4";
     VideoCapture cap(path);
 
@@ -43,24 +45,36 @@ int main()
 
         // Por cada cara detectada busca si se ha detectado anteriormente
         if (faceCodingGray.size() != 0) {
+
             for (const auto& cf : faceCodingGray) {
-                bool isEmpty = list->isEmpty();
-                if (isEmpty == true)
+                
+                if (list->isEmpty())
                 {
                     Identity* id = new Identity(cf);
                     list->add(id);
-                }
-                else {
-                    int existe = list->search(cf);
-                    if (existe == -1) {
+                    tree->add(id->getidentifier());
+
+                } else {
+
+                    int exists = list->search(cf);
+
+                    if (exists == -1) {
+
                         Identity* id = new Identity(cf);
                         list->add(id);
+                        tree->add(id->getidentifier());
+
+                    } else {
+
+                        tree->add(exists);
+
                     }
+
                 }
             }  
         }
         
-        //Muestro las caras encontradas en la imaggen original
+        //Muestro las caras encontradas en la imagen original
         for (const auto& fm : facesMarkers) {
             rectangle(image, fm, color, 4);
         }
@@ -69,6 +83,8 @@ int main()
         imshow("Detected Face", image);
         waitKey(1);
     }
+
+    tree->print();
     
     //Mostrar todas las caras unicas que se detectaron
     for (int i = 0; i < list->getSize(); i++)

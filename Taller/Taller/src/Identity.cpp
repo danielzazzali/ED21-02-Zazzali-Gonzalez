@@ -12,7 +12,6 @@ Identity::Identity() {
 
 Identity::Identity(Mat image) {
 
-	
 	this->image = image;
 
 }

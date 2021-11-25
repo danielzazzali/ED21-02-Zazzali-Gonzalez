@@ -1,4 +1,4 @@
 # ED21-02-Zazzali-González
-## Release 0.2
+## Release 0.3
 
-Implementada lista enlazada que almacena las caras recortadas de los sujetos detectados por el algoritmo.
+Implementado Árbol Binario en base a nodos que almacenan un entero 'identificador' y un entero 'fotogramas' para cada identidad detectada. 

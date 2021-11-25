@@ -1,6 +1,7 @@
 #include <iostream>
-#include "../include/LinkedList.h"
-#include "../include/Node.h"
+#include "include/LinkedList.h"
+#include "include/Nodo.h"
+
 
 LinkedList::LinkedList() {
 
@@ -13,7 +14,7 @@ LinkedList::~LinkedList() {
 
 }
 
-Node* LinkedList::getFirst() {
+Nodo* LinkedList::getFirst() {
 
 	return first;
 
@@ -27,7 +28,7 @@ Identity* LinkedList::getX(int x) {
 
 	}
 
-	Node* p = first;
+	Nodo* p = first;
 
 	for (int i = 0; i < x; i++) {
 
@@ -53,7 +54,7 @@ bool LinkedList::isEmpty() {
 
 bool LinkedList::add(Identity* identity) {
 
-	Node* node = new Node(identity);
+	Nodo* node = new Nodo(identity);
 
 	if (size == 0) {
 
@@ -62,11 +63,12 @@ bool LinkedList::add(Identity* identity) {
 		first->setNext(nullptr);
 		size++;
 
+		node->getData()->setidentifier(size);
 		return true;
 	}
 	else {
 
-		Node* p = first;
+		Nodo* p = first;
 
 		while (p->getNext() != nullptr) {
 
@@ -79,6 +81,7 @@ bool LinkedList::add(Identity* identity) {
 		node->setNext(nullptr);
 		size++;
 
+		node->getData()->setidentifier(size);
 		return true;
 
 	}
@@ -113,8 +116,8 @@ bool LinkedList::remove(int x) {
 		return true;
 	}
 
-	Node* p = first;
-	
+	Nodo* p = first;
+
 	if (x > 0 && x < size - 1) {
 
 		for (int i = 0; i < x; i++) {
@@ -142,5 +145,25 @@ bool LinkedList::remove(int x) {
 	size--;
 
 	return true;
-	
+
+}
+
+int LinkedList::search(Mat image) {
+
+	// Retorna el identifier que concuerda con la imagen para actualizar los frames en el arbol.
+
+	Nodo* p = first;
+	int exist = -1;
+	while (p != nullptr)
+	{
+		Mat original = p->getData()->getImage();
+		double dist = norm(original, image, cv::NormTypes::NORM_L2);
+		if (dist < 3100)
+		{
+			exist = p->getData()->getidentifier();
+			break;
+		}
+		p = p->getNext();
+	}
+	return exist;
 }

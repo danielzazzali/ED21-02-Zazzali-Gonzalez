@@ -1,20 +1,17 @@
 #include <opencv2/opencv.hpp>
-#include <string>
-#include "../include/Identity.h"
+#include "include/Identity.h"
 
 using cv::Mat;
-using std::string;
 
 Identity::Identity() {
 
-	this->label = "";
+	this->identifier = 0;
 	this->image = NULL;
-	
+
 }
 
-Identity::Identity(Mat image, string label) {
+Identity::Identity(Mat image) {
 
-	this->label = label;
 	this->image = image;
 
 }
@@ -29,9 +26,9 @@ Mat Identity::getImage() {
 
 }
 
-string Identity::getLabel() {
+int Identity::getidentifier() {
 
-	return label;
+	return identifier;
 
 }
 
@@ -41,8 +38,8 @@ void Identity::setImage(Mat image) {
 
 }
 
-void Identity::setLabel(string label) {
+void Identity::setidentifier(int identifier) {
 
-	this->label = label;
+	this->identifier = identifier;
 
 }

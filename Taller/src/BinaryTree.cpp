@@ -1,85 +1,167 @@
+#include "include/BinaryTree.h"
 #include <iostream>
-#include "../src/NodeBinaryTree.cpp"
-#include "../include/BinaryTree.h"
 
-void BinaryTree::copyTree(NodeBinaryTree*& copiedTreeRoot, NodeBinaryTree* otherTreeRoot){
+using namespace std;
 
+int BinaryTree::Size(BinaryNode* root) {
 
+	if (root == nullptr) { return 0; }
+
+	return Size(root->getLLink()) + 1 + Size(root->getRLink());
+}
+
+int BinaryTree::Height(BinaryNode* root) {
+	
+	if (root == nullptr) { return 0; }
+
+	return 1 + Max(Height(root->getLLink()), Height(root->getRLink()));
 
 }
 
-void BinaryTree::destroy(NodeBinaryTree*& p){
+int BinaryTree::Max(int a, int b) {
 
+	if (a > b) { return a; }
 
+	if (b > a) { return b; }
+
+	return a;
+}
+
+void BinaryTree::Add(BinaryNode* parent, BinaryNode* newNode) {
+
+	if (parent->getIdentifier() == newNode->getIdentifier()) {
+
+		parent->addOneFrame();
+
+		delete newNode;
+
+	} else if (newNode->getFrames() < parent->getFrames()) {
+
+		if (parent->getLLink() == nullptr) {
+
+			parent->setLLink(newNode);
+
+		} else {
+
+			Add(parent->getLLink(), newNode);
+
+		}
+
+	} else if (newNode->getFrames() > parent->getFrames()) {
+
+		if (parent->getRLink() == nullptr) {
+
+			parent->setRLink(newNode);
+
+		} else {
+
+			Add(parent->getRLink(), newNode);
+
+		}
+
+	}
 
 }
 
-void BinaryTree::inorder(NodeBinaryTree* p) const{
+void BinaryTree::Print(BinaryNode* root) {
 
+	if (root == nullptr) {
 
+		return;
+	}
+
+	cout << "ID: " << root->getIdentifier() << " Frames: " << root->getFrames() << endl;
+
+	Print(root->getLLink());
+
+	Print(root->getRLink());
+}
+
+int* BinaryTree::FindMax(BinaryNode* node) {
+
+	if (node == nullptr) {
+
+		return 0;
+	}
+
+	int* max = new int[2];
+
+	max[0] = node->getFrames();
+	max[1] = node->getIdentifier();
+
+	int* maxL = FindMax(node->getLLink());
+	int* maxR = FindMax(node->getRLink());
+
+	if (maxL != nullptr && maxL[0] > max[0]) {
+
+		max = maxL;
+
+	}
+
+	if (maxR != nullptr && maxR[0] > max[0]) {
+
+		max = maxR;
+
+	}
+
+	return max;
+}
+
+BinaryTree::BinaryTree() {
+
+	this->root = nullptr;
 
 }
 
-int BinaryTree::height(NodeBinaryTree* p) const{
+BinaryTree::BinaryTree(BinaryNode* root) {
 
-
-	return 0;
-}
-
-int BinaryTree::max(int x, int y) const{
-
-
-	return 0;
-}
-
-BinaryTree::BinaryTree(){
-
+	this->root = root;
 
 }
 
-bool BinaryTree::search(const Identity& item){
+void BinaryTree::setRoot(BinaryNode* root) {
 
-
-	return false;
-}
-
-void BinaryTree::insert(const Identity& item){
-
-
+	this->root = root;
 
 }
 
-void BinaryTree::deleteNode(const Identity& item){
+int BinaryTree::size() {
 
-
-
-}
-
-bool BinaryTree::isEmpty() const{
-
-
-
-	return false;
-}
-
-void BinaryTree::inorderTraversal() const{
-
-
-
+	return Size(root);
 
 }
 
-int BinaryTree::treeHeight() const{
+int BinaryTree::height() {
 
-
-
-
-	return 0;
+	return Height(root);
 }
 
-void BinaryTree::destroyTree(){
 
+void BinaryTree::add(int identifier) {
 
+	BinaryNode* node = new BinaryNode(identifier, 1);
 
+	if (root == nullptr) {
+		
+		root = node;
+	
+	} else {
+		
+		Add(root, node);
+	}
+}
+
+void BinaryTree::print(){
+
+	Print(root);
+
+	cout << endl;
 
 }
+
+int* BinaryTree::findMax()
+{
+	return FindMax(root);
+}
+
+

@@ -77,6 +77,36 @@ void BinaryTree::Print(BinaryNode* root) {
 	Print(root->getRLink());
 }
 
+int* BinaryTree::FindMax(BinaryNode* node) {
+
+	if (node == nullptr) {
+
+		return 0;
+	}
+
+	int* max = new int[2];
+
+	max[0] = node->getFrames();
+	max[1] = node->getIdentifier();
+
+	int* maxL = FindMax(node->getLLink());
+	int* maxR = FindMax(node->getRLink());
+
+	if (maxL != nullptr && maxL[0] > max[0]) {
+
+		max = maxL;
+
+	}
+
+	if (maxR != nullptr && maxR[0] > max[0]) {
+
+		max = maxR;
+
+	}
+
+	return max;
+}
+
 BinaryTree::BinaryTree() {
 
 	this->root = nullptr;
@@ -124,7 +154,14 @@ void BinaryTree::add(int identifier) {
 void BinaryTree::print(){
 
 	Print(root);
+
 	cout << endl;
 
 }
+
+int* BinaryTree::findMax()
+{
+	return FindMax(root);
+}
+
 

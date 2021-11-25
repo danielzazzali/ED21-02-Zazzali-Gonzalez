@@ -17,6 +17,8 @@ private:
 
 	void Print(BinaryNode* root);
 
+	int* FindMax(BinaryNode* node);
+
 public:
 
 	BinaryTree();
@@ -33,5 +35,6 @@ public:
 
 	void print();
 
+	int* findMax();
 };
 

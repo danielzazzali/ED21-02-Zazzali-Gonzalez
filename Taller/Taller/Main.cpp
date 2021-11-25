@@ -10,7 +10,6 @@
 #include "src/include/Identity.h"
 #include "src/include/BinaryTree.h"
 
-
 using namespace std;
 using namespace cv;
 
@@ -85,6 +84,10 @@ int main() {
     }
 
     tree->print();
+
+    int* max = tree->findMax();
+
+    cout << "CARA CON MAYOR TIEMPO EN PANTALLA:  ID = " << max[1] << " Frames = " << max[0] << endl;
     
     //Mostrar todas las caras unicas que se detectaron
     for (int i = 0; i < list->getSize(); i++)

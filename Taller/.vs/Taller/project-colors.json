@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e09a5adc-cb57-4626-b527-060d73ac5fa7": {
+      "ProjectGuid": "e09a5adc-cb57-4626-b527-060d73ac5fa7",
+      "DisplayName": "Taller",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    },
+    "e5ab7ecc-0856-431a-8d89-c335596e0315": {
+      "ProjectGuid": "e5ab7ecc-0856-431a-8d89-c335596e0315",
+      "DisplayName": "Taller",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

@@ -162,6 +162,12 @@
     <ClInclude Include="src\include\LinkedList.h" />
     <ClInclude Include="src\include\Nodo.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\Personas.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="classifiers\haarcascade_frontalface_alt.xml" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

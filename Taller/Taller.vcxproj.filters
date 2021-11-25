@@ -63,4 +63,10 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\Personas.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="classifiers\haarcascade_frontalface_alt.xml" />
+  </ItemGroup>
 </Project>

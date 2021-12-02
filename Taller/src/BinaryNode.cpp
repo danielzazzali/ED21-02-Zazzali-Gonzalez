@@ -1,4 +1,5 @@
 #include "include/BinaryNode.h"
+#include <iostream>
 
 BinaryNode::BinaryNode() {
 
@@ -77,3 +78,7 @@ BinaryNode* BinaryNode::getRLink()
 	return rlink;
 }
 
+bool BinaryNode::operator<(BinaryNode const& a) {
+
+	return a.frames < this->frames;
+}

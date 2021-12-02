@@ -1,2 +1,5 @@
 ﻿  Main.cpp
-  Taller.vcxproj -> C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\x64\Debug\Taller.exe
+  LinkedList.cpp
+E:\Documentos\OpenCv\Release 0.3\Taller\Taller\src\LinkedList.cpp(7,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Generando código...
+  Taller.vcxproj -> E:\Documentos\OpenCv\Release 0.3\Taller\x64\Debug\Taller.exe

@@ -1,5 +1,7 @@
-#pragma once
 #include "BinaryNode.h"
+#include <iostream>
+#include <vector>
+
 
 class BinaryTree {
 
@@ -19,6 +21,9 @@ private:
 
 	int* FindMax(BinaryNode* node);
 
+	void showIn(BinaryNode* node,std::vector<BinaryNode> & arreglo);
+
+
 public:
 
 	BinaryTree();
@@ -36,5 +41,9 @@ public:
 	void print();
 
 	int* findMax();
+
+	void show(int type, std::vector<BinaryNode> & arreglo);
+
+
 };
 

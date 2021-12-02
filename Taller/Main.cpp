@@ -35,6 +35,7 @@ int main() {
         ImageCoding icoding;
 
         auto facesMarkers = fdetector.detectFaceRectangles(image);
+        
 
         Scalar color(0, 0, 255);
 
@@ -64,7 +65,6 @@ int main() {
                         tree->add(id->getidentifier());
 
                     } else {
-
                         tree->add(exists);
 
                     }
@@ -82,13 +82,24 @@ int main() {
         imshow("Detected Face", image);
         waitKey(1);
     }
+    //Vector que guardara los nodos del arbol binario
+    vector<BinaryNode> arreglo;
 
     tree->print();
+    cout << "La altura es: " << tree->height() << endl;
 
     int* max = tree->findMax();
-
     cout << "Id con mayor tiempo en pantalla:  ID = " << max[1] << " Frames = " << max[0] << "\n" << endl;
-    
+
+    tree->show(1,arreglo); //Se llena el vector con los nodos
+    sort(arreglo.begin(), arreglo.end()); // se ordena de mayor a menor
+
+    cout << "Las 5 caras que mas se repitieron son:" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "ID: " << arreglo[i].getIdentifier() << " Frames: " << arreglo[i].getFrames()<<" " << "Segundos: " << float (arreglo[i].getFrames() / 10.) << endl;
+    }
+
+
     //Mostrar todas las caras unicas que se detectaron
     for (int i = 0; i < list->getSize(); i++)
     {

@@ -4,10 +4,10 @@
 
 
 LinkedList::LinkedList() {
-
+	srand(time(NULL));
 	this->first = nullptr;
 	this->size = 0;
-
+	this->num[8];
 }
 
 LinkedList::~LinkedList() {
@@ -52,6 +52,17 @@ bool LinkedList::isEmpty() {
 
 }
 
+// Chequea que no hayan identificadores repetidos
+bool LinkedList::checkrep(int n, int num[]) {
+	for (int i = 0; i < 8; i++)
+	{
+		if (n == num[i]) {
+			return true;
+		}
+	}
+	return false;
+}
+
 bool LinkedList::add(Identity* identity) {
 
 	Nodo* node = new Nodo(identity);
@@ -61,9 +72,15 @@ bool LinkedList::add(Identity* identity) {
 		first = node;
 		first->setPrevious(nullptr);
 		first->setNext(nullptr);
-		size++;
+		int random;
+		//se genera un numero random hasta que se encuentre uno que no exista
+		do {
+			random = 1 + rand() % (11 - 1);
+		} while (checkrep(random, num));
+		num[size] = random;
 
-		node->getData()->setidentifier(size);
+		size++;
+		node->getData()->setidentifier(random);
 		return true;
 	}
 	else {
@@ -75,13 +92,19 @@ bool LinkedList::add(Identity* identity) {
 			p = p->getNext();
 
 		}
-
+		 
 		node->setPrevious(p);
 		p->setNext(node);
 		node->setNext(nullptr);
-		size++;
+		int random;
+		//se genera un numero random hasta que se encuentre uno que no exista
+		do {
+			random = 1 + rand() % (11 - 1);
+		} while (checkrep(random, num));
+		num[size] = random;
 
-		node->getData()->setidentifier(size);
+		size++;
+		node->getData()->setidentifier(random);
 		return true;
 
 	}

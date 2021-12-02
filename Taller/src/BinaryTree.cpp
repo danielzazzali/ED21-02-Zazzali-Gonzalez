@@ -1,5 +1,6 @@
 #include "include/BinaryTree.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -28,14 +29,12 @@ int BinaryTree::Max(int a, int b) {
 }
 
 void BinaryTree::Add(BinaryNode* parent, BinaryNode* newNode) {
-
 	if (parent->getIdentifier() == newNode->getIdentifier()) {
-
 		parent->addOneFrame();
-
 		delete newNode;
+	}
 
-	} else if (newNode->getFrames() < parent->getFrames()) {
+	else if (newNode->getIdentifier() < parent->getIdentifier()) {
 
 		if (parent->getLLink() == nullptr) {
 
@@ -47,7 +46,7 @@ void BinaryTree::Add(BinaryNode* parent, BinaryNode* newNode) {
 
 		}
 
-	} else if (newNode->getFrames() > parent->getFrames()) {
+	} else if (newNode->getIdentifier() > parent->getIdentifier()) {
 
 		if (parent->getRLink() == nullptr) {
 
@@ -71,9 +70,9 @@ void BinaryTree::Print(BinaryNode* root) {
 	}
 
 	cout << "ID: " << root->getIdentifier() << " Frames: " << root->getFrames() << endl;
-
+	cout << "Izquierda de " << root->getIdentifier() << endl;
 	Print(root->getLLink());
-
+	cout << "derecha de " << root->getIdentifier() << endl;
 	Print(root->getRLink());
 }
 
@@ -110,13 +109,12 @@ int* BinaryTree::FindMax(BinaryNode* node) {
 BinaryTree::BinaryTree() {
 
 	this->root = nullptr;
-
 }
 
 BinaryTree::BinaryTree(BinaryNode* root) {
 
 	this->root = root;
-
+	
 }
 
 void BinaryTree::setRoot(BinaryNode* root) {
@@ -151,6 +149,7 @@ void BinaryTree::add(int identifier) {
 	}
 }
 
+
 void BinaryTree::print(){
 
 	Print(root);
@@ -163,5 +162,25 @@ int* BinaryTree::findMax()
 {
 	return FindMax(root);
 }
+
+
+void BinaryTree::showIn(BinaryNode* node,vector<BinaryNode> & arreglo) {
+	if (node != NULL) {
+		showIn(node->getLLink(), arreglo);
+		arreglo.push_back(*node);
+		showIn(node->getRLink(), arreglo);
+	}
+}
+
+
+void BinaryTree::show(int type, vector<BinaryNode> & arreglo) {
+	switch (type) {
+		case 1: showIn(root,arreglo); break;
+		default: throw std::invalid_argument("0, 1 or 2");
+	}
+}
+
+
+
 
 

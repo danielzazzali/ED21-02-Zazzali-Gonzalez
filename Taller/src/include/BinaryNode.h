@@ -38,5 +38,7 @@ public:
 
 	BinaryNode* getRLink();
 
+	bool operator<(BinaryNode const& a);
+
 };
 

@@ -9,6 +9,8 @@ private:
 
 	Nodo* first;
 	int size;
+	int num[8];
+	bool checkrep(int n, int num[]);
 
 public:
 

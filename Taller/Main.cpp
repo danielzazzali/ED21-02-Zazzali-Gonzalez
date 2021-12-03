@@ -47,6 +47,13 @@ int main() {
         std::cin >> final;
     }
     int finalFrames = final * cap.get(CAP_PROP_FPS); //Paso los segundos a fotogramas
+    
+    //Instancio video en donde estará el video cortado
+    string output_path = "resources/Cut"+to_string(int(comienzo))+"-"+to_string(int(final))+".mp4";
+    int fourcc = VideoWriter::fourcc('0', '0', '0', 'C');
+    int width = cap.get(CAP_PROP_FRAME_WIDTH);
+    int height = cap.get(CAP_PROP_FRAME_HEIGHT);
+    VideoWriter output_cap(output_path, fourcc,cap.get(CAP_PROP_FPS),Size(width,height),true);
 
     //Mientras que el fotograma en el que se encuentra sea menor o igual al fotograma final, entonces que detecte caras
     while (cap.get(CAP_PROP_POS_FRAMES) <= finalFrames)
@@ -104,6 +111,9 @@ int main() {
         // Mostrar la imagen con las marcas (rectángulos) indicando la posición de la cara
         imshow("Detected Face", image);
         cv::waitKey(1);
+        //agrego el frame al video
+        output_cap.write(image);
+
 
     }
     //Vector que guardara los nodos del arbol binario
@@ -125,14 +135,14 @@ int main() {
 
 
     //Mostrar todas las caras unicas que se detectaron
-    for (int i = 0; i < list->getSize(); i++)
+    /*for (int i = 0; i < list->getSize(); i++)
     {
         Mat face = list->getX(i)->getImage();
         int ident = list->getX(i)->getidentifier();
         putText(face,to_string(ident), Point(20, 20), 1, 1.5, Scalar(0, 0, 0), 2, 8, false);
         imshow(to_string(ident), face);
         cv::waitKey(0);
-    }
+    }*/
 
     destroyAllWindows();
 

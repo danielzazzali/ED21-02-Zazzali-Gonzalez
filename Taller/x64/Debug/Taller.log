@@ -2,4 +2,6 @@
 E:\Documentos\OpenCv\Release 0.3\Taller\Taller\Main.cpp(25,18): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
 E:\Documentos\OpenCv\Release 0.3\Taller\Taller\Main.cpp(38,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
 E:\Documentos\OpenCv\Release 0.3\Taller\Taller\Main.cpp(49,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+E:\Documentos\OpenCv\Release 0.3\Taller\Taller\Main.cpp(54,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+E:\Documentos\OpenCv\Release 0.3\Taller\Taller\Main.cpp(55,16): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
   Taller.vcxproj -> E:\Documentos\OpenCv\Release 0.3\Taller\x64\Debug\Taller.exe

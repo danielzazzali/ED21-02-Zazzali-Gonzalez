@@ -1,5 +1,5 @@
 ﻿  Main.cpp
-  LinkedList.cpp
-E:\Documentos\OpenCv\Release 0.3\Taller\Taller\src\LinkedList.cpp(7,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Generando código...
+E:\Documentos\OpenCv\Release 0.3\Taller\Taller\Main.cpp(25,18): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+E:\Documentos\OpenCv\Release 0.3\Taller\Taller\Main.cpp(38,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+E:\Documentos\OpenCv\Release 0.3\Taller\Taller\Main.cpp(49,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
   Taller.vcxproj -> E:\Documentos\OpenCv\Release 0.3\Taller\x64\Debug\Taller.exe

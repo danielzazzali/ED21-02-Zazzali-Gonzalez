@@ -10,3 +10,4 @@
 | 22/OCT | Obj-02 | Recoleccion de caras y almacenamiento de estas en una lista enlazada | Daniel Zazzali | 5 horas | 7 horas |
 | 21/NOV | Obj-03 | Detección y almacenamiento de caras sin repetir en un video | Diego González | 2 horas | 3 horas |
 | 25/NOV | Obj-03 | Implementar árbol binario que lleve la cuenta de los fotogramas en pantalla de cada identidad | Daniel Zazzali | 4 horas | 6 horas |
+| 03/DIC | Obj-02 | Busqueda de las cinco caras más repetidas | Diego González | 1 hora | 1,5 horas |

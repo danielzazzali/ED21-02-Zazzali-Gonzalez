@@ -12,3 +12,4 @@
 | 25/NOV | Obj-03 | Implementar árbol binario que lleve la cuenta de los fotogramas en pantalla de cada identidad | Daniel Zazzali | 4 horas | 6 horas |
 | 02/DIC | Obj-02 | Busqueda de las cinco caras más repetidas | Diego González | 1 hora | 1,5 horas |
 | 03/DIC | Obj-03 | Selección de inicio y termino del video | Diego González | 20 minutos | 40 minutos |
+| 03/DIC | Obj-05 | Almacenamiento de video recortado con la detección de caras | Diego González | 20 minutos | 15 minutos |

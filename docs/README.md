@@ -188,13 +188,14 @@ void BinaryTree::Add(BinaryNode* parent, BinaryNode* newNode) {
 
 * Se logró detectar los rostros que aparecen en pantalla señalados con un rectangulo de color rojo, almacenarlos y desplegarlos.
 
-https://user-images.githubusercontent.com/90357250/144731696-a4634a05-ce09-4a01-8916-7343f13a9fe0.mp4
+![Detección de rostros]https://user-images.githubusercontent.com/90357250/144731696-a4634a05-ce09-4a01-8916-7343f13a9fe0.mp4
 
 
 
 * Se logró contabilizar y desplegar las 5 identidades que pasan mas tiempo en camara.
 
 
+![Información de rostros](https://user-images.githubusercontent.com/80864796/144731694-70889a67-81c1-4c77-9bb4-d326fd05e403.png)
 
 # Anexos
 

@@ -42,8 +42,6 @@ Desarrollar un sistema de software capaz de reconocer, identificar y registrar l
 
 ![diagrama](https://user-images.githubusercontent.com/90357250/136678660-8e52372a-a9ad-475e-8b9d-479b1e01adfa.png)
 
-
-
 ## 2. Materiales y métodos
 
 Se utilizará la libreria OpenCV, la IDE Visual Studio 2019 y programación orientada a objetos en C++ para desarrollar el software.
@@ -51,8 +49,13 @@ Se utilizará la libreria OpenCV, la IDE Visual Studio 2019 y programación orie
 ### 2.2 Diseño 
 
 Clases:
-* Identidad
-* Aparicion
+* Nodo (Lista Enlazada)
+* LinkedList
+* ImageCoding
+* Identity
+* FaceDetector
+* BinaryNode
+* BinaryTree
 * Usuario
 * Administrador
 * Guardia
@@ -61,7 +64,7 @@ Clases:
 
 ### 2.3 Implementación
 
-Para detectar los rostros en pantalla se utilizó el modelo haarcascade.
+* Para detectar los rostros en pantalla se utilizó el modelo haarcascade:
 
 ```c++
  1. CascadeClassifier faceCascade;
@@ -93,11 +96,53 @@ Para detectar los rostros en pantalla se utilizó el modelo haarcascade.
 ```
 El ciclo for se encarga de recortar los rostros y almacenarlos en la carpeta "Faces" para su posterior despliegue.
 
+* Para actualizar actualizar las identidades en el arbol binario de busqueda se implementó el siguiente metodo:
+
+```c++
+void BinaryTree::Add(BinaryNode* parent, BinaryNode* newNode) {
+	if (parent->getIdentifier() == newNode->getIdentifier()) {
+		parent->addOneFrame();
+		delete newNode;
+	}
+
+	else if (newNode->getIdentifier() < parent->getIdentifier()) {
+
+		if (parent->getLLink() == nullptr) {
+
+			parent->setLLink(newNode);
+
+		} else {
+
+			Add(parent->getLLink(), newNode);
+
+		}
+
+	} else if (newNode->getIdentifier() > parent->getIdentifier()) {
+
+		if (parent->getRLink() == nullptr) {
+
+			parent->setRLink(newNode);
+
+		} else {
+
+			Add(parent->getRLink(), newNode);
+
+		}
+
+	}
+
+}
+
+```
+
 ## 3. Resultados obtenidos
 
-Se logro detectar los rostros que aparecen en pantalla señalados con un rectangulo de color rojo, almacenarlos y desplegarlos.
+* Se logró detectar los rostros que aparecen en pantalla señalados con un rectangulo de color rojo, almacenarlos y desplegarlos.
 
 https://user-images.githubusercontent.com/90357250/138578225-5df71a15-27a3-41c4-bac4-645b2aefc688.mp4
+
+* Se logró contabilizar y desplegar las 5 identidades que pasan mas tiempo en camara.
+
 
 
 # Anexos
@@ -105,5 +150,3 @@ https://user-images.githubusercontent.com/90357250/138578225-5df71a15-27a3-41c4-
 ## Anexo A: Instalación y configuración librerías OpenCV
 
 1. Bekios, J., Taller-01: Instalación de las librerías de OpenCV para Visual Studio en C++. https://www.youtube.com/watch?v=Hu7ArOaFm2g
-  
-

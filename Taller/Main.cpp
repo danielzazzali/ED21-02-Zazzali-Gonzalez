@@ -56,7 +56,7 @@ int main() {
     VideoWriter output_cap(output_path, fourcc,cap.get(CAP_PROP_FPS),Size(width,height),true);
 
     //Mientras que el fotograma en el que se encuentra sea menor o igual al fotograma final, entonces que detecte caras
-    while (cap.get(CAP_PROP_POS_FRAMES) <= finalFrames)
+    while (cap.get(CAP_PROP_POS_FRAMES) < finalFrames)
     {
         Mat image;
         cap.read(image);

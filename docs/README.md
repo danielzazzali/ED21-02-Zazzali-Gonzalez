@@ -67,34 +67,84 @@ Clases:
 * Para detectar los rostros en pantalla se utilizó el modelo haarcascade:
 
 ```c++
- 1. CascadeClassifier faceCascade;
- 2. faceCascade.load("C:/opencv/build/etc/haarcascades/haarcascade_frontalface_alt.xml");
+FaceDetector::FaceDetector() : scaleFactor_(1.2), minNeighbors_(4), imageWidth_(50), imageHeight_(50) {
+    face_cascade.load("classifiers/haarcascade_frontalface_alt.xml");
+}
 
- 3. faceCascade.detectMultiScale(grayscale, faces, 1.02, 3);
+std::vector<cv::Rect> FaceDetector::detectFaceRectangles(const cv::Mat& frame) {
 
- 4. for (int r = 0; r < faces.size(); r++) {
+    std::vector<cv::Rect> faces;
+    Mat imageGray;
 
-	5. int x = faces[r].x * scale;
-	6. int y = faces[r].y * scale;
-	7. int w = faces[r].width * scale;
-	8. int h = faces[r].height * scale;
+    // Detecto las caras (Se debe pasar la imagen a escala de grises
+    cvtColor(frame, imageGray, COLOR_BGR2GRAY);
+    // Aumento el constraste de una imagen
+    equalizeHist(imageGray, imageGray);
+    face_cascade.detectMultiScale(imageGray,
+        faces,
+        scaleFactor_,
+        minNeighbors_,
+        0 | CASCADE_SCALE_IMAGE,
+        Size(imageWidth_, imageHeight_));
 
-	9. croppedFace = frame(Rect(x, y, w, h));
+    return faces;
+}
 
-	10. images[r] = croppedFace;
+```
 
-	11. filenumber = to_string(r);
-	12. labels[r] = filenumber;
+* Para almacenar las identidades se utilizó una lista enlazada:
+```c++
+bool LinkedList::add(Identity* identity) {
 
-	13. stringstream ssfn;
-	14. filename = "Resources\\Faces\\";
-	15. ssfn << filename.c_str() << name << filenumber << ".jpg";
-	16. filename = ssfn.str();
-	17. imwrite(filename, croppedFace);
+	Nodo* node = new Nodo(identity);
+
+	if (size == 0) {
+
+		first = node;
+		first->setPrevious(nullptr);
+		first->setNext(nullptr);
+		int random;
+		//se genera un numero random hasta que se encuentre uno que no exista
+		do {
+			random = 1 + rand() % (11 - 1);
+		} while (checkrep(random, num));
+		num[size] = random;
+
+		size++;
+		node->getData()->setidentifier(random);
+		return true;
+	}
+	else {
+
+		Nodo* p = first;
+
+		while (p->getNext() != nullptr) {
+
+			p = p->getNext();
+
+		}
+		 
+		node->setPrevious(p);
+		p->setNext(node);
+		node->setNext(nullptr);
+		int random;
+		//se genera un numero random hasta que se encuentre uno que no exista
+		do {
+			random = 1 + rand() % (11 - 1);
+		} while (checkrep(random, num));
+		num[size] = random;
+
+		size++;
+		node->getData()->setidentifier(random);
+		return true;
+
+	}
+
+	return false;
 
 }
+
 ```
-El ciclo for se encarga de recortar los rostros y almacenarlos en la carpeta "Faces" para su posterior despliegue.
 
 * Para actualizar actualizar las identidades en el arbol binario de busqueda se implementó el siguiente metodo:
 
@@ -132,7 +182,6 @@ void BinaryTree::Add(BinaryNode* parent, BinaryNode* newNode) {
 	}
 
 }
-
 ```
 
 ## 3. Resultados obtenidos

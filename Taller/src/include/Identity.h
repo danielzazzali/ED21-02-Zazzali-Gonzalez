@@ -10,6 +10,7 @@ private:
 
 	Mat image;
 	int identifier;
+	int frames;
 
 public:
 
@@ -21,11 +22,17 @@ public:
 
 	Mat getImage();
 
-	int getidentifier();
+	int getIdentifier();
+
+	int getFrames();
 
 	void setImage(Mat image);
 
-	void setidentifier(int identifier);
+	void setIdentifier(int identifier);
+
+	void setFrames(int frames);
+
+	void addFrame();
 
 };
 

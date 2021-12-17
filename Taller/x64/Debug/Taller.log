@@ -1,16 +1,9 @@
-﻿  BinaryNode.cpp
-  BinaryTree.cpp
+﻿  AVLTree.cpp
   Main.cpp
 C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(25,18): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(38,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(49,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(54,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(55,16): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-  FaceDetector.cpp
-  Identity.cpp
-  ImageCoding.cpp
-  LinkedList.cpp
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\src\LinkedList.cpp(7,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Nodo.cpp
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(39,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(50,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(55,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(56,16): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
   Generando código...
   Taller.vcxproj -> C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\x64\Debug\Taller.exe

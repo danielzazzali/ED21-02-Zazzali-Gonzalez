@@ -70,9 +70,7 @@ void BinaryTree::Print(BinaryNode* root) {
 	}
 
 	cout << "ID: " << root->getIdentifier() << " Frames: " << root->getFrames() << endl;
-	cout << "Izquierda de " << root->getIdentifier() << endl;
 	Print(root->getLLink());
-	cout << "derecha de " << root->getIdentifier() << endl;
 	Print(root->getRLink());
 }
 

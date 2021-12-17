@@ -7,12 +7,14 @@ Identity::Identity() {
 
 	this->identifier = 0;
 	this->image = NULL;
+	this->frames = 0;
 
 }
 
 Identity::Identity(Mat image) {
 
 	this->image = image;
+	this->frames = 1;
 
 }
 
@@ -26,10 +28,15 @@ Mat Identity::getImage() {
 
 }
 
-int Identity::getidentifier() {
+int Identity::getIdentifier() {
 
 	return identifier;
 
+}
+
+int Identity::getFrames()
+{
+	return frames;
 }
 
 void Identity::setImage(Mat image) {
@@ -38,8 +45,20 @@ void Identity::setImage(Mat image) {
 
 }
 
-void Identity::setidentifier(int identifier) {
+void Identity::setIdentifier(int identifier) {
 
 	this->identifier = identifier;
+
+}
+
+void Identity::setFrames(int frames) {
+
+	this->frames = frames;
+
+}
+
+void Identity::addFrame() {
+
+	this->frames++;
 
 }

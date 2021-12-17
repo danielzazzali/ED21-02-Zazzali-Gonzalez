@@ -80,7 +80,7 @@ bool LinkedList::add(Identity* identity) {
 		num[size] = random;
 
 		size++;
-		node->getData()->setidentifier(random);
+		node->getData()->setIdentifier(random);
 		return true;
 	}
 	else {
@@ -104,7 +104,7 @@ bool LinkedList::add(Identity* identity) {
 		num[size] = random;
 
 		size++;
-		node->getData()->setidentifier(random);
+		node->getData()->setIdentifier(random);
 		return true;
 
 	}
@@ -183,7 +183,7 @@ int LinkedList::search(Mat image) {
 		double dist = norm(original, image, cv::NormTypes::NORM_L2);
 		if (dist < 3100)
 		{
-			exist = p->getData()->getidentifier();
+			exist = p->getData()->getIdentifier();
 			break;
 		}
 		p = p->getNext();

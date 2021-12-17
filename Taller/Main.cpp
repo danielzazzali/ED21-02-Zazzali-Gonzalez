@@ -10,14 +10,14 @@
 #include "src/include/LinkedList.h"
 #include "src/include/Identity.h"
 #include "src/include/BinaryTree.h"
+#include "AVLTree.h"
 
 using namespace std;
 using namespace cv;
 
 int main() {
 
-    LinkedList* list = new LinkedList();
-    BinaryTree* tree = new BinaryTree();
+    AVLTree* tree = new AVLTree();
 
     string path = "resources/Personas.mp4";
     VideoCapture cap(path);
@@ -35,6 +35,7 @@ int main() {
         std::cout << "Segundos fuera de rango, intente de nuevo" << std::endl;
         std::cin >> comienzo;
     }
+
     int comienzoMilisegundos = comienzo * 1000; //Paso segundos a milisegundos para setearlos en el video
     cap.set(CAP_PROP_POS_MSEC, comienzoMilisegundos);
 
@@ -66,7 +67,6 @@ int main() {
 
         auto facesMarkers = fdetector.detectFaceRectangles(image);
         
-
         Scalar color(0, 0, 255);
 
         // Codifico las caras detectadas
@@ -77,27 +77,19 @@ int main() {
         if (faceCodingGray.size() != 0) {
 
             for (const auto& cf : faceCodingGray) {
-                
-                if (list->isEmpty())
-                {
-                    Identity* id = new Identity(cf);
-                    list->add(id);
-                    tree->add(id->getidentifier());
 
-                } else {
+                int exist = tree->search(cf);
 
-                    int exists = list->search(cf);
+                cout << exist << endl; // AAAAAAAAAAAAAAAAAQUIIIIIIIIIIIIIIIIIIIIIIII
 
-                    if (exists == -1) {
+                if (exist == -1) {
 
-                        Identity* id = new Identity(cf);
-                        list->add(id);
-                        tree->add(id->getidentifier());
+                    tree->insert(cf);
 
-                    } else {
-                        tree->add(exists);
+                }
+                else {
 
-                    }
+                    tree->addFrame(exist);
 
                 }
             }  
@@ -114,35 +106,9 @@ int main() {
         //agrego el frame al video
         output_cap.write(image);
 
-
     }
-    //Vector que guardara los nodos del arbol binario
-    vector<BinaryNode> arreglo;
 
     tree->print();
-    std::cout << "La altura es: " << tree->height() << endl;
-
-    int* max = tree->findMax();
-    std::cout << "Id con mayor tiempo en pantalla:  ID = " << max[1] << " Frames = " << max[0] << "\n" << endl;
-
-    tree->show(1,arreglo); //Se llena el vector con los nodos
-    std::sort(arreglo.begin(), arreglo.end()); // se ordena de mayor a menor
-
-    std::cout << "Las 5 caras que mas se repitieron son:" << endl;
-    for (int i = 0; i < 5; i++) {
-        std::cout << "ID: " << arreglo[i].getIdentifier() << " Frames: " << arreglo[i].getFrames()<<" " << "Segundos: " << float (arreglo[i].getFrames() / cap.get(CAP_PROP_FPS)) << endl;
-    }
-
-
-    //Mostrar todas las caras unicas que se detectaron
-    /*for (int i = 0; i < list->getSize(); i++)
-    {
-        Mat face = list->getX(i)->getImage();
-        int ident = list->getX(i)->getidentifier();
-        putText(face,to_string(ident), Point(20, 20), 1, 1.5, Scalar(0, 0, 0), 2, 8, false);
-        imshow(to_string(ident), face);
-        cv::waitKey(0);
-    }*/
 
     destroyAllWindows();
 

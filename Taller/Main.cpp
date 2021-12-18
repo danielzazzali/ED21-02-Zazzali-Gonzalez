@@ -155,16 +155,15 @@ int main() {
 
         cout << "ID: " << arreglo[i].getId() << " Frames: " << arreglo[i].getFrames() << " " << "Segundos: " << float(arreglo[i].getFrames() / cap.get(CAP_PROP_FPS)) << endl;
 
-        // Problemas: Los vectores de frames estan en 0
+        cout << "Intervalos de aparicion : " << endl;
 
-        cout << "ID: " << arreglo[i].getId() << " size intervals: " << arreglo[i].getIntervals().size() << endl;
+        for (int x = 0; x < arreglo[i].getIntervals().size(); x++) {
 
-        //for (int x = 0; x < arreglo[i].getIntervals().size(); x++) {
+            cout << arreglo[i].getIntervals()[x] << " ";
 
-        //    cout << arreglo[i].getIntervals()[x] << endl;
+        }
 
-        //}
-
+        cout << "\n" << endl;
     }
 
     /*

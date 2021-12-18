@@ -69,7 +69,7 @@ AVLNode* AVLNode::getRLink()
 
 vector<int> AVLNode::getIntervals()
 {
-	return vector<int>();
+	return intervals;
 }
 
 bool AVLNode::operator<(AVLNode const& a)

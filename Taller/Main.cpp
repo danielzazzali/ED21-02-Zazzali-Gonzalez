@@ -153,17 +153,29 @@ int main() {
 
     for (int i = 0; i < 5; i++) {
 
-        cout << "ID: " << arreglo[i].getId() << " Frames: " << arreglo[i].getFrames() << " " << "Segundos: " << float(arreglo[i].getFrames() / cap.get(CAP_PROP_FPS)) << endl;
+        if (i < arreglo.size()) {
+            cout << "ID: " << arreglo[i].getId() << " Frames: " << arreglo[i].getFrames() << " " << "Segundos: " << float(arreglo[i].getFrames() / cap.get(CAP_PROP_FPS)) << endl;
 
-        cout << "Intervalos de aparicion : " << endl;
+            cout << "Intervalos de aparicion : " << endl;
+            for (int x = 0; x < arreglo[i].getIntervals().size()-1; x++) {
+                int frameActual = arreglo[i].getIntervals()[x];
+                int frameSiguiente = arreglo[i].getIntervals()[x+1];
+                if ((frameSiguiente - frameActual) > 1)
+                {
+                    cout << "" << endl;
+                }
+                else {
+                    cout << float(arreglo[i].getIntervals()[x]/ cap.get(CAP_PROP_FPS)) << " ";
+                }
+                
+                if (x == arreglo[i].getIntervals().size() - 2) {
+                    cout << float(arreglo[i].getIntervals()[x+1]/cap.get(CAP_PROP_FPS)) << " ";
+                }
 
-        for (int x = 0; x < arreglo[i].getIntervals().size(); x++) {
+            }
 
-            cout << arreglo[i].getIntervals()[x] << " ";
-
+            cout << "\n" << endl;
         }
-
-        cout << "\n" << endl;
     }
 
     /*

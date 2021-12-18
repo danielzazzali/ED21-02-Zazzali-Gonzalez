@@ -13,3 +13,4 @@
 | 02/DIC | Obj-02 | Busqueda de las cinco caras más repetidas | Diego González | 1 hora | 1,5 horas |
 | 03/DIC | Obj-03 | Selección de inicio y termino del video | Diego González | 20 minutos | 40 minutos |
 | 03/DIC | Obj-05 | Almacenamiento de video recortado con la detección de caras | Diego González | 20 minutos | 15 minutos |
+| 17/DIC | Obj-06 | Creado el árbol AVL para almacenar los intervalos de tiempo y la cantidad de fotogramas de cada identidad | Daniel Zazzali | 5 horas | 8 horas |

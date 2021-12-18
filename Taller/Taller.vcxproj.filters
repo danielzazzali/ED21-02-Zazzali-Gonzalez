@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="src\FaceDetector.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -33,16 +30,13 @@
     <ClCompile Include="src\LinkedList.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\BinaryTree.cpp">
+    <ClCompile Include="src\AVLNode.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="src\BinaryNode.cpp">
+    <ClCompile Include="src\AVLTree.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="AVLNode.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="AVLTree.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,16 +56,10 @@
     <ClInclude Include="src\include\Nodo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="src\include\BinaryTree.h">
+    <ClInclude Include="src\include\AVLTree.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="src\include\BinaryNode.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="AVLNode.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="AVLTree.h">
+    <ClInclude Include="src\include\AVLNode.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

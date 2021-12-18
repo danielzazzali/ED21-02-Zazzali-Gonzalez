@@ -144,10 +144,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AVLNode.cpp" />
-    <ClCompile Include="AVLTree.cpp" />
-    <ClCompile Include="src\BinaryNode.cpp" />
-    <ClCompile Include="src\BinaryTree.cpp" />
+    <ClCompile Include="src\AVLNode.cpp" />
+    <ClCompile Include="src\AVLTree.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\FaceDetector.cpp" />
     <ClCompile Include="src\Identity.cpp" />
@@ -156,10 +154,8 @@
     <ClCompile Include="src\Nodo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AVLNode.h" />
-    <ClInclude Include="AVLTree.h" />
-    <ClInclude Include="src\include\BinaryNode.h" />
-    <ClInclude Include="src\include\BinaryTree.h" />
+    <ClInclude Include="src\include\AVLNode.h" />
+    <ClInclude Include="src\include\AVLTree.h" />
     <ClInclude Include="src\include\FaceDetector.h" />
     <ClInclude Include="src\include\Identity.h" />
     <ClInclude Include="src\include\ImageCoding.h" />

@@ -194,6 +194,7 @@ https://user-images.githubusercontent.com/90357250/144731696-a4634a05-ce09-4a01-
 
 ![informacion de rostros](https://user-images.githubusercontent.com/90357250/146661365-c78807ec-9161-4d5f-a11f-1a0599dba0ff.PNG)
 
+![intervalos](https://user-images.githubusercontent.com/90357250/146661390-4a309f99-0952-43a6-ae48-0e31dd4b2500.PNG)
 
 # Anexos
 

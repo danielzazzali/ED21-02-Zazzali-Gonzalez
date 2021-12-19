@@ -44,7 +44,7 @@ Desarrollar un sistema de software capaz de reconocer, identificar y registrar l
 
 ## 2. Materiales y métodos
 
-Se utilizará la libreria OpenCV, la IDE Visual Studio 2019 y programación orientada a objetos en C++ para desarrollar el software.
+Se utilizó la libreria OpenCV, la IDE Visual Studio 2019 y programación orientada a objetos en C++ para desarrollar el software.
 
 ### 2.2 Diseño 
 
@@ -56,9 +56,6 @@ Clases:
 * FaceDetector
 * BinaryNode
 * BinaryTree
-* Usuario
-* Administrador
-* Guardia
 
 ![Diagrama de clase](https://user-images.githubusercontent.com/90357250/138576534-cc880c47-fe1e-45ff-9545-adaa2f853933.jpg)
 

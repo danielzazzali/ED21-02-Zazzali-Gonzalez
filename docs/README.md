@@ -192,8 +192,8 @@ https://user-images.githubusercontent.com/90357250/144731696-a4634a05-ce09-4a01-
 
 * Se logró contabilizar y desplegar las 5 identidades que pasan mas tiempo en camara.
 
+![informacion de rostros](https://user-images.githubusercontent.com/90357250/146661352-e709978e-cd12-4668-bb33-103b7ade2155.PNG)
 
-![Información de rostros](![image](https://user-images.githubusercontent.com/90357250/146661343-d1c502ce-1e8f-45df-bdd3-92a2ebefacb9.png))
 
 # Anexos
 

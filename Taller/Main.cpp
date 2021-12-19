@@ -12,16 +12,13 @@
 #include "src/include/AVLTree.h"
 #include "src/include/AVLNode.h"
 
-
 using namespace std;
 using namespace cv;
-
 
 int main() {
 
     LinkedList* list = new LinkedList();
     AVLTree* AVLtree = new AVLTree();
-
 
     string path = "resources/Personas.mp4";
     VideoCapture cap(path);
@@ -29,26 +26,26 @@ int main() {
     int segundos = cap.get(CAP_PROP_FRAME_COUNT) / cap.get(CAP_PROP_FPS); //Calculo la cantidad de segundos del video
     double comienzo, final;
 
-    std::cout << "El video dura " << segundos << " segundos" << std::endl;
+    cout << "\nEL VIDEO DURA " << segundos << " SEGUNDOS" << endl;
 
     //Inicio del video
-    std::cout << "¿Desde que segundo quiere comenzar?" << std::endl;
-    std::cin >> comienzo;
+    cout << "¿DESDE QUE SEGUNDO DESEA COMENZAR?" << endl;
+    cin >> comienzo;
     while (comienzo < 0 || comienzo > segundos)
     {
-        std::cout << "Segundos fuera de rango, intente de nuevo" << std::endl;
-        std::cin >> comienzo;
+        cout << "SEGUNDOS FUERA DE RANGO, INTENTE DE NUEVO" << endl;
+        cin >> comienzo;
     }
     int comienzoMilisegundos = comienzo * 1000; //Paso segundos a milisegundos para setearlos en el video
     cap.set(CAP_PROP_POS_MSEC, comienzoMilisegundos);
 
     //Final del video
-    std::cout << "¿Hasta que segundo?" << std::endl;
-    std::cin >> final;
+    cout << "¿HASTA QUE SEGUNDO?" << endl;
+    cin >> final;
     while (final < comienzo || final > segundos)
     {
-        std::cout << "Segundos fuera de rango, intente de nuevo" << std::endl;
-        std::cin >> final;
+        cout << "SEGUNDOS FUERA DE RANGO, INTENTE DE NUEVO" << endl;
+        cin >> final;
     }
     int finalFrames = final * cap.get(CAP_PROP_FPS); //Paso los segundos a fotogramas
 
@@ -130,54 +127,63 @@ int main() {
 
     }
 
+    //Para visualizar el arbol por niveles
+    //AVLtree->printTreeLevels();
+
+    //Vector que guardara los nodos del arbol binario
+    vector<AVLNode> arreglo;
+
+    AVLtree->show(1, arreglo); //Se llena el vector con los nodos
+    sort(arreglo.begin(), arreglo.end()); // se ordena de mayor a menor
+
+    cout << "\nLAS 5 IDENTIDADES QUE MAS TIEMPO PASARON EN CAMARA: \n" << endl;
+
+    for (int i = 0; i < 5; i++) {
+
+        if (i < arreglo.size()) {
+            cout << "ID: " << arreglo[i].getId() << " SEGUNDOS TOTALES: " << float(arreglo[i].getFrames() / cap.get(CAP_PROP_FPS)) << " FRAMES: " << arreglo[i].getFrames() << endl;
+
+            cout << "\n\n";
+        }
+    }
+
+    for (int i = 0; i < arreglo.size(); i++) {
+
+        cout << "INTERVALOS (SEGUNDOS) EN LOS QUE APARECIO LA IDENTIDAD = " << arreglo[i].getId() << ": \n" << endl;
+
+        for (int x = 0; x < arreglo[i].getIntervals().size() - 1; x++) {
+
+            int frameActual = arreglo[i].getIntervals()[x];
+            int frameSiguiente = arreglo[i].getIntervals()[x + 1];
+
+            if ((frameSiguiente - frameActual) > 1)
+            {
+                cout << "\n\n";
+            }
+            else {
+                cout << float(arreglo[i].getIntervals()[x] / cap.get(CAP_PROP_FPS)) << " ";
+            }
+
+            if (x == arreglo[i].getIntervals().size() - 2) {
+                cout << float(arreglo[i].getIntervals()[x + 1] / cap.get(CAP_PROP_FPS)) << "";
+            }
+
+        }
+
+        cout << "\n\n";
+    }
+
     //Mostrar todas las caras unicas que se detectaron
     for (int i = 0; i < list->getSize(); i++)
     {
         Mat face = list->getX(i)->getImage();
         int ident = list->getX(i)->getIdentifier();
-        putText(face,to_string(ident), Point(20, 20), 1, 1.5, Scalar(0, 0, 0), 2, 8, false);
+        putText(face, to_string(ident), Point(20, 20), 1, 1.5, Scalar(0, 0, 0), 2, 8, false);
         imshow(to_string(ident), face);
         cv::waitKey(0);
     }
 
-    AVLtree->printTreeLevels();
-
-    //Vector que guardara los nodos del arbol binario
-    vector<AVLNode> arreglo;
-
-
-    AVLtree->show(1, arreglo); //Se llena el vector con los nodos
-    sort(arreglo.begin(), arreglo.end()); // se ordena de mayor a menor
-
-    cout << "Las 5 caras que mas se repitieron son:" << endl;
-
-    for (int i = 0; i < 5; i++) {
-
-        if (i < arreglo.size()) {
-            cout << "ID: " << arreglo[i].getId() << " Frames: " << arreglo[i].getFrames() << " " << "Segundos: " << float(arreglo[i].getFrames() / cap.get(CAP_PROP_FPS)) << endl;
-
-            cout << "Intervalos de aparicion : " << endl;
-            for (int x = 0; x < arreglo[i].getIntervals().size()-1; x++) {
-                int frameActual = arreglo[i].getIntervals()[x];
-                int frameSiguiente = arreglo[i].getIntervals()[x+1];
-                if ((frameSiguiente - frameActual) > 1)
-                {
-                    cout << "" << endl;
-                }
-                else {
-                    cout << float(arreglo[i].getIntervals()[x]/ cap.get(CAP_PROP_FPS)) << " ";
-                }
-                
-                if (x == arreglo[i].getIntervals().size() - 2) {
-                    cout << float(arreglo[i].getIntervals()[x+1]/cap.get(CAP_PROP_FPS)) << " ";
-                }
-
-            }
-
-            cout << "\n" << endl;
-        }
-    }
-
+    //Para recorrer el arbol avl
     /*
     AVLtree->preorder();
     

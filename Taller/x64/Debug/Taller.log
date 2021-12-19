@@ -1,17 +1,7 @@
-﻿  AVLNode.cpp
-  AVLTree.cpp
-C:\Users\diego\Downloads\a\Taller\src\AVLTree.cpp(67,33): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
-  Main.cpp
-C:\Users\diego\Downloads\a\Taller\Main.cpp(29,18): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\diego\Downloads\a\Taller\Main.cpp(42,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\diego\Downloads\a\Taller\Main.cpp(53,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\diego\Downloads\a\Taller\Main.cpp(58,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\diego\Downloads\a\Taller\Main.cpp(59,16): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-  FaceDetector.cpp
-  Identity.cpp
-  ImageCoding.cpp
-  LinkedList.cpp
-C:\Users\diego\Downloads\a\Taller\src\LinkedList.cpp(7,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Nodo.cpp
-  Generando código...
-  Taller.vcxproj -> C:\Users\diego\Downloads\a\x64\Debug\Taller.exe
+﻿  Main.cpp
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(26,18): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(39,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(50,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(55,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(56,16): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+  Taller.vcxproj -> C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\x64\Debug\Taller.exe

@@ -182,6 +182,8 @@ void BinaryTree::Add(BinaryNode* parent, BinaryNode* newNode) {
 ```
 
 ## 3. Resultados obtenidos
+* Explicación de la estructura usada.
+[![Alt text](https://img.youtube.com/vi/bcd-GEL9gnU/0.jpg)](https://www.youtube.com/watch?v=bcd-GEL9gnU)
 
 * Se logró detectar los rostros que aparecen en pantalla señalados con un rectangulo de color rojo, almacenarlos y desplegarlos.
 

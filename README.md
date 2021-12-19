@@ -1,4 +1,4 @@
 # ED21-02-Zazzali-González
-## Release 0.3
+## Release 0-4
 
-Implementado Árbol Binario en base a nodos que almacenan un entero 'identificador' y un entero 'fotogramas' para cada identidad detectada. 
+Implementado Árbol AVL para almacenar los frames e intervalos de aparición de las identidades detectadas por el algoritmo de reconocimiento.

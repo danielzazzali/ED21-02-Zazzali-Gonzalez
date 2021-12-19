@@ -1,7 +1,7 @@
 ﻿  Main.cpp
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(26,18): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(39,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(50,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(55,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(56,16): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(29,18): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(42,30): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(53,21): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(58,15): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\Taller\Main.cpp(59,16): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
   Taller.vcxproj -> C:\Users\Daniel\source\repos\danielzazzali\ED21-02-Zazzali-Gonzalez\x64\Debug\Taller.exe

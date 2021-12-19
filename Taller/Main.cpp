@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include "opencv2/objdetect.hpp"
 #include "opencv2/imgproc.hpp"
 #include "opencv2/highgui.hpp"
@@ -16,6 +17,8 @@ using namespace std;
 using namespace cv;
 
 int main() {
+
+    system("color F");
 
     LinkedList* list = new LinkedList();
     AVLTree* AVLtree = new AVLTree();
@@ -141,7 +144,7 @@ int main() {
     for (int i = 0; i < 5; i++) {
 
         if (i < arreglo.size()) {
-            cout << "ID: " << arreglo[i].getId() << " SEGUNDOS TOTALES: " << float(arreglo[i].getFrames() / cap.get(CAP_PROP_FPS)) << " FRAMES: " << arreglo[i].getFrames() << endl;
+            cout << "ID: " << arreglo[i].getId() << "| SEGUNDOS TOTALES: " << float(arreglo[i].getFrames() / cap.get(CAP_PROP_FPS)) << "| FRAMES: " << arreglo[i].getFrames() << endl;
 
             cout << "\n\n";
         }
@@ -158,7 +161,7 @@ int main() {
 
             if ((frameSiguiente - frameActual) > 1)
             {
-                cout << "\n\n";
+                cout << "\n";
             }
             else {
                 cout << float(arreglo[i].getIntervals()[x] / cap.get(CAP_PROP_FPS)) << " ";

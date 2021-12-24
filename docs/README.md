@@ -54,8 +54,8 @@ Clases:
 * ImageCoding
 * Identity
 * FaceDetector
-* BinaryNode
-* BinaryTree
+* AVLNode
+* AVLTree
 
 ![Diagrama Clase](https://user-images.githubusercontent.com/90357250/147300835-4e7044c2-4785-4f7d-b25b-e82daac202d5.jpg)
 

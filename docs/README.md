@@ -57,7 +57,7 @@ Clases:
 * AVLNode
 * AVLTree
 
-![Diagrama Clase](https://user-images.githubusercontent.com/90357250/147300835-4e7044c2-4785-4f7d-b25b-e82daac202d5.jpg)
+![Diagrama Clase](https://user-images.githubusercontent.com/90357250/147301757-53b39803-299b-4242-8eda-968734605370.jpg)
 
 ### 2.3 Implementación
 

@@ -40,7 +40,7 @@ Desarrollar un sistema de software capaz de reconocer, identificar y registrar l
 
 ### 1.3 Solución propuesta
 
-![diagrama](https://user-images.githubusercontent.com/90357250/136678660-8e52372a-a9ad-475e-8b9d-479b1e01adfa.png)
+![Diagrama](https://user-images.githubusercontent.com/90357250/147300819-2ad9263d-9bff-45ad-8d30-093575d2efed.png)
 
 ## 2. Materiales y métodos
 
@@ -57,7 +57,7 @@ Clases:
 * BinaryNode
 * BinaryTree
 
-![Diagrama de clase](https://user-images.githubusercontent.com/90357250/138576534-cc880c47-fe1e-45ff-9545-adaa2f853933.jpg)
+![Diagrama Clase](https://user-images.githubusercontent.com/90357250/147300835-4e7044c2-4785-4f7d-b25b-e82daac202d5.jpg)
 
 ### 2.3 Implementación
 
